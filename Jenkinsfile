@@ -45,6 +45,8 @@ pipeline{
                 sed -i 's/IMAGE_VERSION/${appVersion}/g' values-dev.yaml
                 cat values-dev.yaml
                 helm upgrade --install backend -n expense -f values-dev.yaml .
+                helm template backend . -f values-dev.yaml --debug
+
 
                 """
                 }
